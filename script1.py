@@ -37,6 +37,7 @@ def identify(language_id):
     st.write(prediction[3][0] + ' with probability' + f" {prediction[1].exp().item()}")
 
 def main():
+    language_id = model_loading()
     st.set_page_config(page_title=APP_NAME)
     st.title(APP_NAME)
     st.markdown(APP_DESCRIPTION, True)
@@ -51,7 +52,6 @@ def main():
     result = st.button('Распознать аудиофайл')
 
     if result:
-        language_id = model_loading()
         identify(language_id)
 
 
